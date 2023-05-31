@@ -1,15 +1,153 @@
+:root {
+  /* FONTS */
+  --primary-font: 'Manrope',
+    sans-serif;
+
+  /* PRIMARY COLORS */
+  --cyan-sm: hsl(174, 77%, 80%);
+  --cyan-lg: hsl(174, 86%, 45%);
+  --greyred-sm: hsl(14, 92%, 95%);
+  --red-sm: hsl(15, 100%, 70%);
+  --blue-sm: hsl(226, 100%, 87%);
+
+  /* NEUTRAL COLORS */
+  --white: hsl(0, 0%, 100%);
+  --blue-xs: hsl(228, 100%, 99%);
+  --greyblue-sm: hsl(224, 65%, 95%);
+  --greyblue-xs: hsl(223, 50%, 87%);
+  --greyblue-base: hsl(225, 20%, 60%);
+  --greyblue-lg: hsl(227, 35%, 25%);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
-section {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
+body {
+  background: var(--blue-xs);
+}
 
+/* MAIN */
+main {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/assets/images/bg-pattern.svg");
+  background-repeat: no-repeat;
+}
+
+/* BANNER SECTION */
+.bannerSection {
+  background: url("/assets/images/pattern-circles.svg") center center/contain no-repeat;
+  text-align: center;
+}
+
+.bannerSection h1 {
+  font: normal 600 1.2rem/2.2rem var(--primary-font);
+  color: var(--greyblue-lg);
+}
+
+.bannerSection sub {
+  font: normal 500 1rem/1.2rem var(--primary-font);
+  color: var(--greyblue-base);
+}
+
+/* PRICING SECTION */
+.pricingSection {
+  background: var(--white);
+  width: 90vw;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.sliderPart {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
   gap: 1rem;
+}
+
+.pageViews {
+  grid-column: 1;
+  font: normal 600 1rem/1rem var(--primary-font);
+  color: var(--greyblue-base);
+  text-transform: uppercase;
+}
+
+.billingPeriod {
+  grid-column: 2;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 0.3rem;
+  letter-spacing: 0.05rem;
+}
+
+.billPrice {
+  font: normal 600 1.5rem/1.5rem var(--primary-font);
+  color: var(--greyblue-lg);
+}
+
+.month {
+  font: normal 600 0.8rem/1rem var(--primary-font);
+  color: var(--greyblue-base);
+}
+
+.sliderDiv {
+  grid-column: 1/3;
+  grid-row: 2;
+  position: relative;
+
+}
+
+progress {
+  /* display: none; */
+  /* background: var(--cyan-sm); */
+  /* background: transparent; */
+  /* -ms-progress-appearance: var(--cyan-sm); */
+  /* -ms-progress-appearance: bar; */
+}
+
+
+.progressBar {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  height: 1.2rem;
+}
+
+
+
+.slider {
+  z-index: 2;
+  position: absolute;
+  height: 1.2rem;
+  width: 100%;
+  appearance: none;
+  /* background-color: var(--cyan-sm); */
+  background: transparent;
+  border-radius: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2rem;
+  aspect-ratio: 1;
+  /* height: 2rem; */
+  background-image: url("/assets/images/icon-slider.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: var(--cyan-lg);
+  border-radius: 50%;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 1rem var(--cyan-lg);
 }

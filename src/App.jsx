@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// import "./index.css"
 
 const App = () => {
     const DISCOUNT_RATE = 0.25
@@ -24,32 +25,51 @@ const App = () => {
     }
   return (
     <main>
-        {/* Pricing Section */}
-        <section>
-            {/* Price Indication */}
-            <article>
-                <span>{priceOptions[priceValue].pageViews} Pageviews</span>
+        {/* Banner section */}
+        <section className='bannerSection'>
+            <h1>
+                Simple, traffic-based pricing
+            </h1>
+            <sub>
+                Sign-up for our 30-day trial.
                 <br />
-                <span>
-                    {
-                        isMonthly 
-                        ? priceOptions[priceValue].billingPrice
-                        : priceOptions[priceValue].billingPrice - (priceOptions[priceValue].billingPrice * DISCOUNT_RATE)
-                    } $/Month
-                </span>
+                No credit card required.
+            </sub>
+        </section>
+        {/* Pricing Section */}
+        <section className='pricingSection'>
+            {/* Price Indication */}
+            <article className='sliderPart'>
+                <span className='pageViews'>{priceOptions[priceValue].pageViews} Pageviews</span>
+                <p  className='billingPeriod'>
+                    <span className='billPrice'>
+                        ${
+                            isMonthly 
+                            ? priceOptions[priceValue].billingPrice
+                            : priceOptions[priceValue].billingPrice - (priceOptions[priceValue].billingPrice * DISCOUNT_RATE)
+                        }.00
+                    </span>
+                    <span className='month'>
+                        / month
+                    </span>
+                </p>
+                {/* Progress slider */}
+                <div className='sliderDiv'>
+                    <input 
+                        className='slider'
+                        type="range" 
+                        name="slider" 
+                        id="slider" 
+                        min={0} 
+                        max={4} 
+                        value={priceValue}
+                        onChange={handlePriceChange} 
+                        step={1}
+                    />
+                    <progress className='progressBar' max={priceOptions.length-1} value={priceValue} />
+                </div>
             </article>
 
-            {/* Progress slider */}
-            <input 
-            type="range" 
-            name="slider" 
-            id="slider" 
-            min={0} 
-            max={4} 
-            value={priceValue}
-            onChange={handlePriceChange} 
-            step={1}
-            />
 
             <br />
             {/* Toggle */}
