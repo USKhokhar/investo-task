@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import "./index.css"
 
 const App = () => {
@@ -14,6 +14,27 @@ const App = () => {
     const [ priceValue, setPriceValue ] = useState(0)
     const [ isMonthly, setIsMonthly ] = useState(true)
 
+    // handling screen change via react
+    const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 480) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
     // handling billing period
     const handleBillingPeriod = () => {
         setIsMonthly(!isMonthly)
@@ -23,6 +44,11 @@ const App = () => {
     const handlePriceChange = (e) => {
         setPriceValue(parseInt(e.target.value))
     }
+
+    const calculateBackground = () => {
+        const gradientPercentage = (priceValue / (priceOptions.length - 1)) * 100;
+        return `linear-gradient(90deg, var(--cyan-sm) ${gradientPercentage}%, var(--greyblue-sm) ${100 - gradientPercentage}%)`;
+    };
   return (
     <main>
         {/* Banner section */}
@@ -54,33 +80,47 @@ const App = () => {
                     </span>
                 </p>
                 {/* Progress slider */}
-                <div className='sliderDiv'>
-                    <input 
-                        className='slider'
-                        type="range" 
-                        name="slider" 
-                        id="slider" 
-                        min={0} 
-                        max={4} 
-                        value={priceValue}
-                        onChange={handlePriceChange} 
-                        step={1}
-                    />
-                    <progress className='progressBar' max={priceOptions.length-1} value={priceValue} />
-                </div>
+            
+                <input 
+                    style={{
+                        
+                        // background: calculateBackground(),
+                    }}
+                    className='slider'
+                    type="range" 
+                    name="slider" 
+                    id="slider" 
+                    min={0} 
+                    max={4} 
+                    value={priceValue}
+                    onChange={handlePriceChange} 
+                    step={1}
+                />
             </article>
 
+            <article className='priceToggleSection'>
+                <span>monthly billing</span>
+                <div>
+                    <input 
+                        type="checkbox" 
+                        name="priceToggle" 
+                        id="priceToggle" 
+                        checked={!isMonthly}
+                        onChange={handleBillingPeriod}
+                    />
 
-            <br />
+                    <label for="priceToggle" className='priceToggleLabel'>Toggle</label>
+                </div>
+                <span>yearly billing</span>
+
+                <span className="discount">
+                    {
+                        isMobile ? '-25%' : '25% discount'
+                    }
+                </span>
+            </article>
             {/* Toggle */}
-            <span>Toggle</span> 
-            <input 
-            type="checkbox" 
-            name="priceToggle" 
-            id="priceToggle" 
-            checked={!isMonthly}
-            onChange={handleBillingPeriod}
-            />
+            
         </section>
     </main>
   )
