@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 // import "./index.css"
 
 const App = () => {
+    const CHECK_ICON = "/assets/images/icon-check.svg"
     const DISCOUNT_RATE = 0.25
     const priceOptions = [
     { pageViews: '10K', billingPrice: 8 },
@@ -119,8 +120,27 @@ const App = () => {
                     }
                 </span>
             </article>
-            {/* Toggle */}
-            
+
+            <article className='staticElements'>
+                <ul>
+                    <li>
+                        <img src={CHECK_ICON} alt="check_icon" />
+                        <span className='listItem'>Unlimited websites</span>
+                    </li>
+                    <li>
+                        <img src={CHECK_ICON} alt="check_icon" />
+                        <span className='listItem'>100% data ownership</span>
+                    </li>
+                    <li>
+                        <img src={CHECK_ICON} alt="check_icon" />
+                        <span className='listItem'>Email reports</span>
+                    </li>
+                </ul>
+
+                <button>
+                    Start my trial
+                </button>
+            </article>
         </section>
     </main>
   )

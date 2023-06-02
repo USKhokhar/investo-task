@@ -193,3 +193,47 @@ input[type="range"]::-moz-slid {
   padding: 0.2rem 0.5rem;
   border-radius: 1rem;
 }
+
+/* STATIC ELEMENTS PART */
+.staticElements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 4rem 1rem 2rem 1rem;
+}
+
+.staticElements ul {
+  list-style: none;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.staticElements ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
+
+  font: normal 500 1rem/1.2rem var(--primary-font);
+  color: var(--greyblue-base);
+}
+
+.staticElements ul li img {
+  width: 1rem;
+}
+
+.staticElements button {
+  background: var(--greyblue-lg);
+  padding: 0.5rem 2rem;
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+
+  font: normal 600 0.8rem/1.2rem var(--primary-font);
+  color: var(--greyblue-xs);
+  letter-spacing: 0.05rem;
+
+  cursor: pointer;
+}
