@@ -65,7 +65,7 @@ const App = () => {
     <main className={isDarkMode ? "dark-mode" : ""}>
         <button onClick={handleModeToggle} className='themeToggleButton'>
             {
-                isDarkMode ? '🌚' : '🌙'
+                isDarkMode ? '🔆' : '🌙'
             }
         </button>
         {/* Banner section */}
