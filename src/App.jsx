@@ -63,6 +63,7 @@ const App = () => {
 
   return (
     <main className={isDarkMode ? "dark-mode" : ""}>
+        {/* THEME TOGGLE */}
         <button onClick={handleModeToggle} className='themeToggleButton'>
             {
                 isDarkMode ? '🔆' : '🌙'
@@ -99,11 +100,7 @@ const App = () => {
                 </p>
                 {/* Progress slider */}
             
-                <input 
-                    style={{
-                        
-                        // background: calculateBackground(),
-                    }}
+                <input
                     className='slider'
                     type="range" 
                     name="slider" 

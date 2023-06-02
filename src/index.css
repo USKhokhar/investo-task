@@ -120,7 +120,31 @@ main.dark-mode {
   outline: none;
   border: none;
   cursor: pointer;
+  -webkit-appearance: none;
+  width: 100%;
+  background: var(--cyan-sm);
+  border-radius: 2rem;
+  height: 1rem;
 }
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1rem;
+  padding: 1rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--cyan-lg);
+  background-image: url("/assets/images/icon-slider.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: ; */
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0.3rem 1rem var(--cyan-lg);
+}
+
 
 /* THEME TOGGLE BUTTON */
 .themeToggleButton {
