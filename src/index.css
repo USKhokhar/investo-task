@@ -263,16 +263,16 @@ input[type="range"]::-moz-slid {
 }
 
 /* BREAKPOINT ---> 768px */
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
   * {
     font-size: 14px;
   }
-}
+} */
 
 /* BREAKPOINT ---> 480px */
 @media only screen and (max-width: 480px) {
   * {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .pricingSection {
@@ -324,8 +324,8 @@ input[type="range"]::-moz-slid {
 }
 
 /* BREAKPOINT ---> 375px */
-@media only screen and (max-width: 375px) {
+/* @media only screen and (max-width: 375px) {
   * {
     font-size: 10px;
   }
-}
+} */
