@@ -30,6 +30,7 @@ body {
   background: var(--blue-xs);
 }
 
+
 /* MAIN */
 main {
   width: 100vw;
@@ -40,6 +41,13 @@ main {
   display: grid;
   place-items: center;
 }
+
+/* main --> dark mode */
+main.dark-mode {
+  filter: invert(100) opacity(0.9) hue-rotate(180deg);
+  background-color: var(--greyblue-xs);
+}
+
 
 /* BANNER SECTION */
 .bannerSection {
@@ -111,42 +119,31 @@ main {
   grid-row: 2;
   outline: none;
   border: none;
-}
-
-input[type="range"]::-webkit-slider-runnable-track {
-  /* background: var(--greyblue-sm); */
-  background: linear-gradient(90deg, var(--cyan-sm) 60%, var(--greyblue-sm) 40%);
-  border-radius: 1rem;
-}
-
-input[type="range"]::-webkit-slider-thumb,
-input[type="range"]::-moz-slid {
-  width: 3rem;
-  aspect-ratio: 1;
-  background: var(--cyan-lg);
-  background-image: url("/assets/images/icon-slider.svg");
-  background-position: -50% -50%;
-  background-size: contain;
-}
-
-.slider::-webkit-slider-thumb:hover {
-  box-shadow: 0 0 1rem var(--cyan-lg);
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 35px;
-  height: 35px;
-  background-image: url("/assets/images/icon-slider.svg");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-color: hsl(174, 86%, 45%);
-  border-radius: 50%;
   cursor: pointer;
 }
 
-.slider::-webkit-slider-thumb:hover {
-  box-shadow: 0px 0px 10px hsl(174, 86%, 45%);
+/* THEME TOGGLE BUTTON */
+.themeToggleButton {
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: box-shadow 300ms ease-in-out;
+
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+
+  background: var(--greyblue-lg);
+
+  display: grid;
+  place-items: center;
+}
+
+.themeToggleButton:hover {
+  box-shadow: 0 0 2rem var(--greyblue-lg);
+  background: none;
 }
 
 /*  MONTH-YEAR TOGGLE */
@@ -191,6 +188,7 @@ input[type="range"]::-moz-slid {
 .priceToggleLabel:active:after {
   width: 1rem;
 }
+
 
 /* PRICE TOGGLE SECTION */
 
@@ -262,13 +260,6 @@ input[type="range"]::-moz-slid {
   cursor: pointer;
 }
 
-/* BREAKPOINT ---> 768px */
-/* @media only screen and (max-width: 768px) {
-  * {
-    font-size: 14px;
-  }
-} */
-
 /* BREAKPOINT ---> 480px */
 @media only screen and (max-width: 480px) {
   * {
@@ -322,10 +313,3 @@ input[type="range"]::-moz-slid {
   }
 
 }
-
-/* BREAKPOINT ---> 375px */
-/* @media only screen and (max-width: 375px) {
-  * {
-    font-size: 10px;
-  }
-} */

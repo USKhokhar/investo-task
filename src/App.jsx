@@ -14,6 +14,7 @@ const App = () => {
 
     const [ priceValue, setPriceValue ] = useState(0)
     const [ isMonthly, setIsMonthly ] = useState(true)
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     // handling screen change via react
     const [isMobile, setIsMobile] = useState(false);
@@ -56,8 +57,17 @@ const App = () => {
         return `rotate(${rotateAngle})`
     }
 
+    const handleModeToggle = () => {
+        setIsDarkMode(!isDarkMode);
+    };
+
   return (
-    <main>
+    <main className={isDarkMode ? "dark-mode" : ""}>
+        <button onClick={handleModeToggle} className='themeToggleButton'>
+            {
+                isDarkMode ? '🌚' : '🌙'
+            }
+        </button>
         {/* Banner section */}
         <section className='bannerSection'>
             <h1>
