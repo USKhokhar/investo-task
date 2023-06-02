@@ -50,6 +50,12 @@ const App = () => {
         const gradientPercentage = (priceValue / (priceOptions.length - 1)) * 100;
         return `linear-gradient(90deg, var(--cyan-sm) ${gradientPercentage}%, var(--greyblue-sm) ${100 - gradientPercentage}%)`;
     };
+
+    const handleRotateElement = () => {
+        const rotateAngle = (priceValue / (priceOptions.length - 1)) * 360
+        return `rotate(${rotateAngle})`
+    }
+
   return (
     <main>
         {/* Banner section */}
@@ -68,6 +74,7 @@ const App = () => {
             {/* Price Indication */}
             <article className='sliderPart'>
                 <span className='pageViews'>{priceOptions[priceValue].pageViews} Pageviews</span>
+                
                 <p  className='billingPeriod'>
                     <span className='billPrice'>
                         ${
@@ -110,7 +117,7 @@ const App = () => {
                         onChange={handleBillingPeriod}
                     />
 
-                    <label for="priceToggle" className='priceToggleLabel'>Toggle</label>
+                    <label htmlFor="priceToggle" className='priceToggleLabel'>Toggle</label>
                 </div>
                 <span>yearly billing</span>
 
