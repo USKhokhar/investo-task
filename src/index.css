@@ -276,14 +276,13 @@ input[type="range"]::-moz-slid {
 
   .sliderPart {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
-    gap: 3rem;
-
+    gap: 1rem;
+    text-align: center;
     width: 100%;
-    /* justify-content: center; */
-    place-items: center;
     justify-content: center;
+    padding: 1rem 1.5rem;
   }
 
   .slider {
@@ -301,6 +300,7 @@ input[type="range"]::-moz-slid {
 
   .billingPeriod {
     width: 100%;
+    justify-content: center;
     grid-column: 1;
     grid-row: 3/3;
   }
